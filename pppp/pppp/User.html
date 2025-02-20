@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User form</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .container {
+        display: flex;
+        gap: 10px;
+      }
+      .custom-form-container {
+        max-width: 500px;
+        width: 100%;
+        padding: 20px;
+        background: #e9f7ef;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-label {
+        font-weight: bold;
+        color: #155724;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-input,
+      .form-textarea,
+      .form-file {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #28a745;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .form-input:focus {
+        border-color: #218838;
+        box-shadow: 0 0 5px rgba(33, 136, 56, 0.5);
+      }
+      .form-textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      .custom-btn {
+        width: 100%;
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .custom-btn:hover {
+        background-color: #218838;
+      }
+
+      .require{
+color:red;
+}
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .custom-form-container {
+          padding: 15px;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-file {
+          font-size: 14px;
+        }
+
+        .custom-btn {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="custom-form-container">
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="container">
+        <div class="form-group">
+          <label for="name" class="form-label">Name <span class="require">*</span></label>
+          <input
+            type="text"
+            class="form-input"
+            id="name"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div class="form-group">
+            <label for="address" class="form-label">Address <span class="require">*</span></label>
+            <input
+              type="text"
+              class="form-input"
+              id="address"
+              placeholder="Enter your address"
+            />
+          </div>
+        </div>
+        <div class="container">
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone No <span class="require">*</span></label>
+            <input
+              type="tel"
+              class="form-input"
+              id="phone"
+              placeholder="Enter your phone no"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email <span class="require">*</span></label>
+            <input
+              type="email"
+              class="form-input"
+              id="email"
+              placeholder="Enter your email"
+            />
+          </div>
+          </div>
+          <div class="container">
+          <div class="form-group">
+            <label for="phone" class="form-label">Password <span class="require">*</span></label>
+            <input
+              type="password"
+              class="form-input"
+              id="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="dob" class="form-label">DOB <span class="require">*</span></label>
+            <input
+              type="date"
+              class="form-input"
+              id="dob"
+              placeholder="Enter your dob"
+            />
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="dl_no" class="form-label">Driving License No <span class="require">*</span></label>
+            <input
+              type="text"
+              class="form-input"
+              id="dl_no"
+              placeholder="Enter your dl no"
+            />
+          </div>
+            <div class="form-group">
+              <label for="image" class="form-label">Driving License Image <span class="require">*</span></label>
+              <input type="file" class="form-file" id="image" />
+            </div>
+          <div class="form-group">
+            <label for="location" class="form-label">Location <span class="require">*</span></label>
+            <input
+              type="text"
+              class="form-input"
+              id="location"
+              placeholder="Enter your location"
+            />
+          </div>
+          <div class="form-group">
+            <label for="experience" class="form-label">Experience</label>
+            <textarea
+              class="form-textarea"
+              id="experience"
+              placeholder="Enter your experience"
+            ></textarea>
+          </div>
+        <button type="submit" class="custom-btn">Submit</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('#experience').summernote({
+          placeholder: 'Enter your experience...',
+          tabsize: 2,
+          height: 90, // Adjust height as needed
+          toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+          ]
+        });
+      });
+    </script>
+    
+  </body>
+</html>

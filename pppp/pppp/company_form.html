@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .custom-form-container {
+        max-width: 500px;
+        width: 100%;
+        padding: 20px;
+        background: #e9f7ef;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-label {
+        font-weight: bold;
+        color: #155724;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-input,
+      .form-textarea,
+      .form-file {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #28a745;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .form-input:focus {
+        border-color: #218838;
+        box-shadow: 0 0 5px rgba(33, 136, 56, 0.5);
+      }
+      .form-textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      .custom-btn {
+        width: 100%;
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .custom-btn:hover {
+        background-color: #218838;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .custom-form-container {
+          padding: 15px;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-file {
+          font-size: 14px;
+        }
+
+        .custom-btn {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="custom-form-container">
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="company_name" class="form-label">Company Name</label>
+          <input
+            type="company_name"
+            class="form-input"
+            id="company_name"
+            placeholder="Enter company name"
+          />
+        </div>
+        <div class="form-group">
+            <label for="image" class="form-label">Brand Logo</label>
+            <input type="file" class="form-file" id="image" />
+          </div>
+          <div class="form-group">
+            <label for="headquarter" class="form-label">Headquarter</label>
+            <input
+              type="headquarter"
+              class="form-input"
+              id="headquarter"
+              placeholder="Enter headquarter name"
+            />
+          </div>
+        <div class="form-group">
+          <label for="globalp" class="form-label">Global Presence</label>
+          <select id="globalp" class="form-input">
+            <option value="">Select your Global Presence</option>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+          </select>
+        </div>
+        <button type="submit" class="custom-btn">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

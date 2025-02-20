@@ -1,0 +1,110 @@
+.custom-form-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background: #e9f7ef;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    font-weight: bold;
+    color: #155724;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-file {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .form-input:focus {
+    border-color: #218838;
+    box-shadow: 0 0 5px rgba(33, 136, 56, 0.5);
+  }
+  .form-textarea {
+    resize: none;
+    height: 100px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .custom-btn:hover {
+    background-color: #218838;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .custom-form-container {
+      padding: 15px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-file {
+      font-size: 14px;
+    }
+
+    .custom-btn {
+      font-size: 14px;
+    }
+  }
+
+  /* css feedbacktable */
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    padding: 20px;
+  }
+  .custom-table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #e9f7ef;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 128, 0, 0.2);
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead {
+    background-color: #E9F7EF;
+    color: black;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  @media (max-width: 600px) {
+    th, td {
+      padding: 8px;
+    }
+  }
