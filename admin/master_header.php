@@ -155,7 +155,7 @@ if (!isset($_SESSION['id'])) {
                             <img src="../assets/logo1.png" alt="Nagar-CT">
                             <span>John Doe</span>
                         </div>
-                        <a href="edit_profile" style="text-decoration:none;color:#000000;">
+                        <a href="profile" style="text-decoration:none;color:#000000;">
                         <div class="menu-item">Edit Profile</div>
                         </a>
                         <a href="change_password" style="text-decoration:none;color:#000000;">
