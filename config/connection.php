@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
 // Creating table for vehicle_categories
 $sql = "CREATE TABLE IF NOT EXISTS vehicle_category (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,  -- car,bike,scotter
     vehicle_type VARCHAR(255) NOT NULL,  -- EV, Petrol, Diesel, CNG
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
@@ -67,7 +67,7 @@ if (mysqli_query($conn, $sql)) {
 }
 
 // Creating table for vehicle_company
-$sql = "CREATE TABLE IF NOT EXISTS vehicle_company (
+$sql = "CREATE TABLE IF NOT EXISTS vehicle_brand (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     logo VARCHAR(255) NOT NULL,
@@ -88,7 +88,8 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE IF NOT EXISTS vehicle (
     id INT PRIMARY KEY AUTO_INCREMENT,
     vehicle_company_id INT NOT NULL,
-    brand VARCHAR(255) NOT NULL,   
+    seats INT NOT NULL,
+    model VARCHAR(255) NOT NULL,   
     vehicle_category_id INT NOT NULL,   
     color VARCHAR(255) NOT NULL,   
     vehicle_number VARCHAR(255) NOT NULL UNIQUE,  -- Ensuring uniqueness for vehicle numbers
@@ -177,10 +178,10 @@ $sql = "CREATE TABLE IF NOT EXISTS notification (
     id INT PRIMARY KEY AUTO_INCREMENT,
     message VARCHAR(255) NOT NULL,
     user_id INT NULL,
-    driver_id INT NULL,
+    driver_email INT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES passanger(id) ON DELETE SET NULL,
-    FOREIGN KEY (driver_id) REFERENCES driver(id) ON DELETE SET NULL
+    FOREIGN KEY (driver_email) REFERENCES driver(email) ON DELETE SET NULL
 );
 ";
 
@@ -193,6 +194,8 @@ if (mysqli_query($conn, $sql)) {
 // Creating table for notification
 $sql = "CREATE TABLE IF NOT EXISTS booking (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    FOREIGN KEY (user_id) REFERENCES passanger(id) ON DELETE SET NULL,
+    FOREIGN KEY (driver_email) REFERENCES driver(email) ON DELETE SET NULL
     pick_up_place VARCHAR(255) NOT NULL,
     destination VARCHAR(255) NOT NULL,
     estimated_cost DECIMAL(10,2) NOT NULL,

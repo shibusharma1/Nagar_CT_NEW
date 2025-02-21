@@ -6,7 +6,8 @@ include_once 'master_header.php';
 require_once '../config/connection.php';
 
 ?>
-<div class="custom-form-container">
+
+<div class="custom-form-container" style="margin:0 auto;">
       <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="email" class="form-label">Email</label>

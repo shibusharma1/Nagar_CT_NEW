@@ -9,16 +9,16 @@ require_once '../config/connection.php';
 <h2>Dashboard</h2>
 <div class="row">
     <div class="col-md-3">
-        <div class="dashboard-card bg-blue">150 New Orders</div>
+        <div class="dashboard-card bg-blue">150 Users</div>
     </div>
     <div class="col-md-3">
-        <div class="dashboard-card bg-green">53% Bounce Rate</div>
+        <div class="dashboard-card bg-green">53% Drivers</div>
     </div>
     <div class="col-md-3">
-        <div class="dashboard-card bg-yellow">44 User Registrations</div>
+        <div class="dashboard-card bg-yellow">44 Vehicles</div>
     </div>
     <div class="col-md-3">
-        <div class="dashboard-card bg-red">65 Unique Visitors</div>
+        <div class="dashboard-card bg-red">65 Booking</div>
     </div>
 </div>
 <div class="mt-4 text-center">
@@ -45,7 +45,7 @@ require_once '../config/connection.php';
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
-                label: 'Sales',
+                label: 'Users',
                 data: [30, 50, 70, 40, 90, 60],
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgba(54, 162, 235, 1)',
@@ -67,7 +67,7 @@ require_once '../config/connection.php';
    // }
     //window.onload = initMap;
     function initMap() {
-    let defaultLocation = { lat: 37.7749, lng: -122.4194 }; // Fallback location
+    let defaultLocation = { lat: 26.4484334, lng: 87.2758998 }; // Fallback location
 
     let map = new google.maps.Map(document.getElementById('map'), {
         center: defaultLocation,

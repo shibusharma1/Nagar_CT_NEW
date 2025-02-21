@@ -14,7 +14,7 @@
   width: 20%;
   height: 100vh;
   position: fixed;
-  border-right: 1px solid linear-gradient(90deg, #007b55, #00c853);
+  /* border-right: 1px solid linear-gradient(90deg, #007b55, #00c853); */
 }
 
 .menu-bar .logo-img {
@@ -43,7 +43,7 @@
   align-items: center;
   /* color: #ffffff; */
   color: black;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-bottom: 1px solid white;
   cursor: pointer;
   position: relative;
@@ -52,13 +52,13 @@
 .item:hover {
   background: #e0f0de;
   color: #333;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
 }
 
 .item.active {
   background: #ffffff;
   color: #333;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 /* Sub-menu styling */
@@ -241,13 +241,14 @@
 /* Main content styling */
 .main-content {
   margin: 4rem 1rem 1rem 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   font-size: 1rem;
   border-radius: 1rem;
   background: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* Subtle, professional shadow */
   transition: all 0.3s ease-in-out;
   z-index: 0;
+  min-height: 75vh;
 }
 
 /* Responsive adjustments */
@@ -278,6 +279,7 @@
   /* background: linear-gradient(90deg, #007b55, #00c853); */
   border-top: 1px solid black;
   color: black;
+  background-color: #F0F0F0;
   font-size: 1rem;
   text-align: center;
   padding: 1rem;

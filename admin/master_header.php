@@ -19,11 +19,13 @@ if (!isset($_SESSION['id'])) {
     <link rel="icon" type="image/png" sizes="64x64" href="../assets/logo1.png" />
     <link rel="stylesheet" href="../css/admin_header.css">
     <link rel="stylesheet" href="../css/admin_feedback_form.css">
+    <link rel="stylesheet" href="../css/feedback.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- For Dashboard -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDumdDv9jxmpC0yaURPXnqkk4kssB8R3C4&libraries=places"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDumdDv9jxmpC0yaURPXnqkk4kssB8R3C4&libraries=places"></script>
     <style>
         a {
             text-decoration: none;
@@ -68,41 +70,57 @@ if (!isset($_SESSION['id'])) {
 <body style="padding: 0;">
     <!-- Sidebar Menu -->
     <div class="menu-bar">
+
         <a href="index">
             <div class="logo-img">
                 <img src="../assets/logo1.png" alt="Nagar-CT">
             </div>
         </a>
+
         <div class="menu-items">
+
             <a href="index">
                 <div class="item <?php echo ($current_page == 'index') ? 'active' : ''; ?>">
                     <i class="fa fa-home" aria-hidden="true"></i> &nbsp; Dashboard
                 </div>
             </a>
 
-            <div class="item <?php echo ($current_page == 'drivers') ? 'active' : ''; ?>">
-                <i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp; Drivers
+            <a href="drivers">
+                <div class="item <?php echo ($current_page == 'drivers') ? 'active' : ''; ?>">
+                    <i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp; Drivers
+                </div>
+            </a>
 
-            </div>
-            <div class="item <?php echo ($current_page == 'users') ? 'active' : ''; ?>">
-                <i class="fa fa-users" aria-hidden="true"></i> &nbsp; Users
+            <a href="vehicles">
+                <div class="item <?php echo ($current_page == 'vehicles') ? 'active' : ''; ?>">
+                    <i class="fa fa-id-card-o" aria-hidden="true"></i> &nbsp; vehicles
+                </div>
+            </a>
 
-            </div>
-            <div class="item <?php echo ($current_page == 'cities') ? 'active' : ''; ?>">
-                <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; Cities
+            <a href="users">
+                <div class="item <?php echo ($current_page == 'users') ? 'active' : ''; ?>">
+                    <i class="fa fa-users" aria-hidden="true"></i> &nbsp; Users
+                </div>
+            </a>
 
-            </div>
-            <div class="item <?php echo ($current_page == 'fairs') ? 'active' : ''; ?>">
-                <i class="fa fa-money" aria-hidden="true"></i> &nbsp; Fairs
+            <a href="cities">
+                <div class="item <?php echo ($current_page == 'cities') ? 'active' : ''; ?>">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp; Cities
+                </div>
+            </a>
 
-            </div>
-            <a href="feedback_table">
+            <a href="fairs">
+                <div class="item <?php echo ($current_page == 'fairs') ? 'active' : ''; ?>">
+                    <i class="fa fa-money" aria-hidden="true"></i> &nbsp; Fairs
+                </div>
+            </a>
+            <a href="feedbacks">
                 <div class="item <?php echo ($current_page == 'feedback') ? 'active' : ''; ?>">
                     <i class="fa fa-commenting-o" aria-hidden="true"></i> &nbsp; Feedback
                 </div>
             </a>
             <div class="item">
-                <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout            
+                <i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout
             </div>
         </div>
     </div>
@@ -111,7 +129,10 @@ if (!isset($_SESSION['id'])) {
     <div class="contents-side">
         <!-- Header Section -->
         <div class="header-content">
-            <span>Nagar-CT</span>
+            <a href="index">
+                <span style="color:#000000;">Nagar-CT</span>
+            </a>
+
             <div class="notification-account-info">
                 <!-- Bell Icon with Notification Badge -->
                 <div class="notification">
@@ -134,8 +155,12 @@ if (!isset($_SESSION['id'])) {
                             <img src="../assets/logo1.png" alt="Nagar-CT">
                             <span>John Doe</span>
                         </div>
+                        <a href="edit_profile" style="text-decoration:none;color:#000000;">
                         <div class="menu-item">Edit Profile</div>
+                        </a>
+                        <a href="change_password" style="text-decoration:none;color:#000000;">
                         <div class="menu-item">Change Password</div>
+                        </a>
                         <a href="logout">
                             <div class="menu-item">Logout</div>
                         </a>
