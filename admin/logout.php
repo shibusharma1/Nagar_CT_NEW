@@ -3,7 +3,7 @@ $title = "Log out";
 session_start(); // Ensure session is started before modifying it
 session_unset(); // Unset all session variables
 session_destroy(); // Destroy the session to fully log out the user
-header("Location: login.php");
+header("Location: login");
 
 ?>
 

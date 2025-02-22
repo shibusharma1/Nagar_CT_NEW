@@ -1,19 +1,19 @@
 <?php
 
 require_once('createdb.php');
-//connecting to database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "NagarDB";
+// //connecting to database
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "NagarDB";
 
-//create a connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// //create a connection
+// $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-//Check Connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// //Check Connection
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
 
 // admin start
 //creating table for Admin 
@@ -218,8 +218,4 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error Creating table: " . mysqli_error($conn);
 }
-
-
-
-
 ?>

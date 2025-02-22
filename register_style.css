@@ -6,7 +6,7 @@
   
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e0f0de;
+    /* background-color: #e0f0de; */
     overflow: hidden;
   }
   
@@ -149,7 +149,7 @@
   
 
   form .first {
-    background-color: #e0f0de;
+    /* background-color: #e0f0de; */
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);

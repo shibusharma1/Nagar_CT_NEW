@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
           </div>
-          <p>Don't have an account? <a href="register">Register</a></p>
+          <!-- <p>Don't have an account? <a href="register">Register</a></p> -->
         </div>
       </form>
     </div>

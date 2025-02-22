@@ -48,7 +48,6 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error Inserting data: " . mysqli_error($conn);
 }
-
 // Admin End
 
 
@@ -57,7 +56,7 @@ if (mysqli_query($conn, $sql)) {
 // Creating table for vehicle_categories
 $sql = "CREATE TABLE IF NOT EXISTS vehicle_category (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,  
     vehicle_type VARCHAR(255) NOT NULL,  -- EV, Petrol, Diesel, CNG
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
@@ -90,6 +89,7 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE IF NOT EXISTS vehicle (
     id INT PRIMARY KEY AUTO_INCREMENT,
     vehicle_company_id INT NOT NULL,
+    seats INT NOT NULL,
     brand VARCHAR(255) NOT NULL,   
     vehicle_category_id INT NOT NULL,   
     color VARCHAR(255) NOT NULL,   
@@ -109,8 +109,8 @@ if (mysqli_query($conn, $sql)) {
     echo "Error Creating table: " . mysqli_error($conn);
 }
 
-// Creating table for User(passanger) Registration
-$sql = "CREATE TABLE IF NOT EXISTS passanger (
+// Creating table for User(passenger) Registration
+$sql = "CREATE TABLE IF NOT EXISTS passenger (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     -- role VARCHAR(30) NOT NULL,
@@ -145,7 +145,7 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE IF NOT EXISTS driver (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    role VARCHAR(30) NOT NULL DEFAULT 'driver', -- this is the case when the driver want to book a ride so his/her role will be changed to user automatically and s/he will be alloweded to book a ride.
+    -- role VARCHAR(30) NOT NULL DEFAULT 'driver', -- this is the case when the driver want to book a ride so his/her role will be changed to user automatically and s/he will be alloweded to book a ride.
     email VARCHAR(50) NOT NULL,  
     password VARCHAR(255) NOT NULL,
     phone BIGINT(10) NOT NULL,
@@ -181,7 +181,7 @@ $sql = "CREATE TABLE IF NOT EXISTS notification (
     user_id INT NULL,
     driver_id INT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES passanger(id) ON DELETE SET NULL,
+    FOREIGN KEY (user_id) REFERENCES passenger(id) ON DELETE SET NULL,
     FOREIGN KEY (driver_id) REFERENCES driver(id) ON DELETE SET NULL
 );
 ";
@@ -195,6 +195,9 @@ if (mysqli_query($conn, $sql)) {
 // Creating table for notification
 $sql = "CREATE TABLE IF NOT EXISTS booking (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    driver_id INT,
+    driver_passenger INT DEFAULT 0,
     pick_up_place VARCHAR(255) NOT NULL,
     destination VARCHAR(255) NOT NULL,
     estimated_cost DECIMAL(10,2) NOT NULL,
@@ -204,6 +207,8 @@ $sql = "CREATE TABLE IF NOT EXISTS booking (
     booking_description TEXT NOT NULL,
     status INT DEFAULT 0,  -- Default status set to 0
     booking_end_datetime DATETIME NULL DEFAULT NULL, -- Nullable if not known at booking time
+    FOREIGN KEY (user_id) REFERENCES passenger(id) ON DELETE SET NULL,
+    FOREIGN KEY (driver_id) REFERENCES driver(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
@@ -212,8 +217,4 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error Creating table: " . mysqli_error($conn);
 }
-
-
-
-
 ?>
