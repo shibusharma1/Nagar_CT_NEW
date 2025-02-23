@@ -100,34 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $mail->Subject = 'Your OTP for Verification of NAGAR-CT';                     // Email subject
         // $mail->Body    = '<h4>Dear ' . $otp . ', You have been successfully enrolled in <strong>FREE CMAT 2081</strong>. For more details, please contact us at: <a href="tel:021-590471">021-590471</a></h4>';
         // $mail->AltBody = 'Please contact the college administration for your voting details.';     // Plain text message body for non-HTML email clients
-        // $mail->Subject = 'Your OTP Code';
-        // $mail->Body = "Your OTP code is <b>$otp</b>. It will expire in 2 minutes.";
-        $mail->Subject = "Welcome, $name! Verify Your Email with OTP";
-
-        $mail->Body = "
-    <div style='font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px;'>
-        <h2 style='color: #2c3e50;'>Welcome to Nagar-CT, $name! 🎉</h2>
-        <p>We're excited to have you on board. To ensure the security of your account, please verify your email using the OTP below:</p>
-        
-        <div style='text-align: center; font-size: 22px; font-weight: bold; background: #f3f3f3; padding: 15px; border-radius: 5px; margin: 20px 0;'>
-            Your OTP Code: <span style='color: #e74c3c;'>$otp</span>
-        </div>
-
-        <p style='color: #555;'>This OTP is valid for the next <b>2 minutes</b>. Please enter it promptly to complete your verification.</p>
-
-        <p>If you did not request this OTP, please ignore this email or contact our support team.</p>
-
-        <hr style='border: none; border-top: 1px solid #ddd;'>
-
-        <p style='color: #333;'><b>Best Regards,</b><br>
-        Nagar-CT Team<br>
-        <a href='https://www.nagarct.com' style='color: #3498db; text-decoration: none;'>www.nagarct.com</a></p>
-    </div>
-";
-
-        $mail->AltBody = "Welcome to Nagar-CT, $name! Your OTP code is $otp. It will expire in 2 minutes. If you did not request this, please ignore this email.";
-
-        // $mail->AltBody = "Your OTP code is $otp. It will expire in 2 minutes.";
+        $mail->Subject = 'Your OTP Code';
+        $mail->Body = "Your OTP code is <b>$otp</b>. It will expire in 2 minutes.";
+        $mail->AltBody = "Your OTP code is $otp. It will expire in 2 minutes.";
 
         $mail->send();
         echo 'Email has been sent successfully';
