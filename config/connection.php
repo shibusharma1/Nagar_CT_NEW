@@ -1,5 +1,3 @@
-
-<!-- Temporary error  -->
 <?php
 
 require_once('createdb.php');
@@ -122,16 +120,10 @@ $sql = "CREATE TABLE IF NOT EXISTS passenger (
     dob DATE NOT NULL,
     gender ENUM('MALE', 'FEMALE', 'OTHERS') NOT NULL,
     image VARCHAR(255),   
-    -- experience TEXT,   
-    -- location LONGTEXT NOT NULL,
     address TEXT,  -- Added address column
-    -- workinghour VARCHAR(255),   
-    -- dlnumber VARCHAR(255),   
-    -- vehicle_id INT,
     otp VARCHAR(10) NOT NULL,  -- Added OTP column
     otp_expiry DATETIME NOT NULL,  -- Added OTP expiry column
     is_verified BOOLEAN DEFAULT 0,  -- Added is_verified column
-    -- FOREIGN KEY (vehicle_id) REFERENCES vehicle(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
@@ -145,7 +137,6 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE IF NOT EXISTS driver (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    -- role VARCHAR(30) NOT NULL DEFAULT 'driver', -- this is the case when the driver want to book a ride so his/her role will be changed to user automatically and s/he will be alloweded to book a ride.
     email VARCHAR(50) NOT NULL,  
     password VARCHAR(255) NOT NULL,
     phone BIGINT(10) NOT NULL,
@@ -155,7 +146,6 @@ $sql = "CREATE TABLE IF NOT EXISTS driver (
     gender ENUM('MALE', 'FEMALE', 'OTHERS') NOT NULL,
     image VARCHAR(255),   
     experience TEXT,   
-    -- location LONGTEXT NOT NULL,
     address TEXT,  -- Added address column
     working_hour VARCHAR(255),   
     dl_number VARCHAR(255),   

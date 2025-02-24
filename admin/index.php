@@ -57,15 +57,7 @@ require_once '../config/connection.php';
         dashboardChart.destroy();
         dashboardChart = new Chart(ctx, { type: this.value, data: dashboardChart.data });
     });
-    
-    //function initMap() {
-       // let map = new google.maps.Map(document.getElementById('map'), {
-       //     center: { lat: 37.7749, lng: -122.4194 },
-      //      zoom: 5,
-     //       mapTypeId: 'roadmap'
-     //   });
-   // }
-    //window.onload = initMap;
+
     function initMap() {
     let defaultLocation = { lat: 26.4484334, lng: 87.2758998 }; // Fallback location
 

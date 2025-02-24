@@ -97,11 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Content
         $mail->isHTML(true);                                        // Set email format to HTML
-        // $mail->Subject = 'Your OTP for Verification of NAGAR-CT';                     // Email subject
-        // $mail->Body    = '<h4>Dear ' . $otp . ', You have been successfully enrolled in <strong>FREE CMAT 2081</strong>. For more details, please contact us at: <a href="tel:021-590471">021-590471</a></h4>';
-        // $mail->AltBody = 'Please contact the college administration for your voting details.';     // Plain text message body for non-HTML email clients
-        // $mail->Subject = 'Your OTP Code';
-        // $mail->Body = "Your OTP code is <b>$otp</b>. It will expire in 2 minutes.";
         $mail->Subject = "Welcome, $name! Verify Your Email with OTP";
 
         $mail->Body = "
@@ -136,12 +131,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
       }
 
-      // ✅ Store OTP and email in session
+      //Store OTP and email in session
       $_SESSION['otp'] = $otp;
       $_SESSION['otp_expiry'] = $otp_expiry;
       $_SESSION['email'] = $email;
 
-      // ✅ Redirect to OTP verification page
+      //Redirect to OTP verification page
       header("Location: verify_otp"); // Redirect to OTP verification
       exit();
     } else {
@@ -149,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  // ✅ Close database connection at the end
+  //Close database connection at the end
   $conn->close();
 }
 ?>
