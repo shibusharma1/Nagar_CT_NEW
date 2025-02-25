@@ -1,4 +1,12 @@
 <?php
+// when user back to this page
+session_start();
+session_unset();
+session_destroy();
+// header("Location:login");
+?>
+
+<?php
 session_start();
 require_once('config/connection.php');
 
@@ -14,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = mysqli_real_escape_string($conn, $email);
 
   // Fetch user details
-  $sql = "SELECT * FROM admin WHERE a_email = '$email'";
+  $sql = "SELECT * FROM passenger WHERE  email = '$email'";
   $sresult = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($sresult);
 
-  if ($row && password_verify($password, $row['a_password'])) {
+  if ($row && password_verify($password, $row['password'])) {
     $_SESSION['login_success'] = true;
-    $_SESSION['role'] = $row['role'];
-    header("Location: index.php");
+    // $_SESSION['role'] = $row['role'];
+    header("Location: frontend/passenger/index");
     exit();
   } else {
     $_SESSION['login_error'] = true;
@@ -90,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label><input type="checkbox"> Remember me</label>
             </div>
             <div class="forget-password">
-            <a href="forgetpassword">Forgot password?</a>
+            <a href="forget_password">Forgot password?</a>
             </div>
           </div>
 

@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $errors['email'] = "Email already exists!";
     }
 
-    // ✅ Free the result and close the statement properly
+    // Free the result and close the statement properly
     $stmt->free_result();
     $stmt->close();
   }
@@ -68,13 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $otp = rand(100000, 999999); // Generate OTP
     $otp_expiry = date("Y-m-d H:i:s", strtotime("+2 minutes")); // OTP expiry time
 
-    // ✅ Insert user data with OTP
+    // Insert user data with OTP
     $stmt = $conn->prepare("INSERT INTO passenger (name, gender, address, email, password, otp, otp_expiry) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $name, $gender, $address, $email, $hashed_password, $otp, $otp_expiry);
 
     if ($stmt->execute()) {
-      // ✅ Close statement after execution
+      // Close statement after execution
       $stmt->close();
 
       // Email Sending Code - PHPMailer
@@ -87,12 +87,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
         $mail->SMTPAuth = true;                                   // Enable SMTP authentication
         $mail->Username = 'nagarctservices@gmail.com';                 // SMTP username
-        $mail->Password = 'temf khyf vayi swpd';                    // SMTP password (Use App Password if 2FA is enabled)
+        $mail->Password = 'gnpl gqhu pukx gmal';                    // SMTP password (Use App Password if 2FA is enabled)
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
         $mail->Port = 587;                                    // TCP port to connect to
 
         // Recipients
-        $mail->setFrom('nagarctservices@gmail.com', 'Nagar-CT');        // Sender's email and name
+        $mail->setFrom('nagarctservices@gmail.com', 'NAGAR-CT');        // Sender's email and name
         $mail->addAddress($email, $name); // Add a recipient
 
         // Content
